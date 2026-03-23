@@ -1,21 +1,17 @@
 @import "tailwindcss";
 
 @theme {
-  --color-background: #030712;
-  --color-foreground: #e0f2fe;
-  --color-cyan-500: #06b6d4;
-  --color-cyan-400: #22d3ee;
-  --color-neon-blue: #00f0ff;
-  --color-dark-glass: rgba(10, 15, 30, 0.6);
-  --color-light-glass: rgba(255, 255, 255, 0.05);
-
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-background: #ffffff;
+  --color-foreground: #1e293b;
+  --color-cyan-500: #0891b2;
+  --color-cyan-400: #06b6d4;
+  --color-primary: #4f46e5;
+  --color-primary-light: #818cf8;
 }
 
 :root {
-  --background: #030712; /* Dark theme by default */
-  --foreground: #e0f2fe;
+  --background: #ffffff;
+  --foreground: #1e293b;
 }
 
 body {
@@ -25,38 +21,27 @@ body {
   overflow-x: hidden;
   margin: 0;
   padding: 0;
+  height: 100dvh;
 }
 
-/* Glassmorphism utilities */
+/* Updated Professional Light Theme utilities */
 @layer utilities {
-  .glass-panel {
-    @apply bg-white/5 backdrop-blur-md border border-white/10 shadow-lg;
-  }
   .glass-card {
-    @apply bg-slate-900/40 backdrop-blur-xl border border-cyan-500/20 shadow-[0_4px_30px_rgba(0,0,0,0.1)];
-  }
-  .neon-text {
-    @apply text-cyan-400 drop-shadow-[0_0_8px_rgba(34,211,238,0.8)];
-  }
-  .neon-border {
-    @apply border border-cyan-400/50 shadow-[0_0_10px_rgba(34,211,238,0.3)];
-  }
-  .neon-hover {
-    @apply transition-all duration-300 hover:shadow-[0_0_15px_rgba(34,211,238,0.5)] hover:border-cyan-400;
+    @apply bg-white/70 backdrop-blur-xl border border-slate-200 shadow-xl;
   }
 }
 
-/* Hide scrollbar but keep functionality */
+/* Scrollbar adjustment */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 5px;
 }
 ::-webkit-scrollbar-track {
-  background: #030712;
+  background: #f1f5f9;
 }
 ::-webkit-scrollbar-thumb {
-  background: #06b6d4;
+  background: #cbd5e1;
   border-radius: 10px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #22d3ee;
+  background: #94a3b8;
 }
