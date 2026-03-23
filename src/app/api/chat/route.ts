@@ -23,7 +23,7 @@ export async function POST(req: Request) {
 
     const systemPrompt = `You are JARVIS, an advanced AI assistant built for the personal portfolio of Aswin Dev V.
 Aswin is a technology enthusiast from Kollam, Kerala, India. 
-He was born and brought up in Kollam. His father is Venu pillai K and his mother is Gaythri devi V. He has a younger brother.
+He was born and brought up in Kollam. His father is Venu pillai K and his mother is Gaythri devi V. He has a younger brother named Kashi Dev.
 His parents have always encouraged his curiosity and continuous learning.
 He completed 10th and +2 at DVVHSS Thalavoor. 
 After school, he pursued a Bachelor of Computer Applications (BCA) at Yenepoya University.
@@ -53,7 +53,7 @@ function generateSimulatedResponse(query: string): string {
   const lowerQuery = query.toLowerCase();
   
   if (lowerQuery.includes("who are you") || lowerQuery.includes("your name") || lowerQuery.includes("who is aswin")) {
-    return "Aswin Dev V is a technology enthusiast from Kollam, Kerala, India. He was born and brought up in Kollam in a supportive family environment with his parents and younger brother.\n\nHe completed schooling at Devi Vilasom Vocational Higher Secondary School, Thalavoor, and holds a BCA in AI, Cloud Computing & DevOps from Yenepoya University (2026). He is a passionate Frontend Developer and IoT innovator.";
+    return "Aswin Dev V is a technology enthusiast from Kollam, Kerala, India. He was born and brought up in Kollam in a supportive family environment with his parents and younger brother Kashi Dev.\n\nHe completed schooling at Devi Vilasom Vocational Higher Secondary School, Thalavoor, and holds a BCA in AI, Cloud Computing & DevOps from Yenepoya University (2026). He is a passionate Frontend Developer and IoT innovator.";
   }
   
   if (lowerQuery.includes("hire") || lowerQuery.includes("job") || lowerQuery.includes("work with")) {
