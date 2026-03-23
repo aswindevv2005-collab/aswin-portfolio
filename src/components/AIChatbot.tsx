@@ -163,7 +163,7 @@ export default function AIChatbot() {
     } else if (lower.includes("kollam") || lower.includes("where is") || lower.includes("from")) {
       botMsg.text = "Aswin Dev V is from Kollam, Kerala, India. He was born and brought up in Kollam and takes great pride in his roots there!";
     } else if (lower.includes("who is") || lower.includes("who are you") || lower.includes("tell me about") || lower.includes("yourself") || lower.includes("biography") || lower.includes("profile")) {
-      botMsg.text = "Aswin Dev V is a technology enthusiast from Kollam, Kerala, India. He was born and brought up in Kollam in a supportive family environment. His father (Venu pillai K) and mother (Gaythri devi V) have always encouraged his learning, and he also has a younger brother.\n\nAswin completed his 10th standard and Higher Secondary (+2) at Devi Vilasom Vocational Higher Secondary School, Thalavoor. Since childhood, he has had a strong curiosity about technology and how systems work.\n\nHe holds a BCA in AI, Cloud Computing & DevOps from Yenepoya University. Aswin is deeply interested in IT, automation, and IoT solutions, building practical projects like his IoT pet feeder and smart devices.";
+      botMsg.text = "Aswin Dev V is a technology enthusiast from Kollam, Kerala, India. He was born and brought up in Kollam in a supportive family environment. His father (Venu pillai K) and mother (Gaythri devi V) have always encouraged his learning, and he also has a younger brother.\n\nAswin completed his 10th standard and Higher Secondary (+2) at Devi Vilasom Vocational Higher Secondary School, Thalavoor. Since childhood, he has had a strong curiosity about technology and how systems work.\n\nHe is currently pursuing a BCA in AI, Cloud Computing & DevOps at Yenepoya University (2026). Aswin is deeply interested in IT, automation, and IoT solutions, building practical projects like his IoT pet feeder and smart devices.";
     } else if (lower.includes("skills")) {
       botMsg.text = "Aswin possesses a robust stack across Frontend, Backend, and IoT. Here are his top technical skills:";
       botMsg.type = "skills";
@@ -324,7 +324,7 @@ export default function AIChatbot() {
             <div className="relative">
               <div className="absolute -left-[21px] top-1 w-3 h-3 bg-cyan-400 rounded-full shadow-[0_0_8px_#06b6d4]"></div>
               <p className="text-xs text-cyan-500 font-bold">2026</p>
-              <p className="text-sm text-gray-200">BCA (AI, Cloud Computing & DevOps) at Yenepoya University</p>
+              <p className="text-sm text-gray-200">Pursuing BCA (AI, Cloud Computing & DevOps) at Yenepoya University</p>
             </div>
           </div>
         )}
