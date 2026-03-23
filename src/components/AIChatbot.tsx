@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Send, Mic, Bot, User, MicOff, X, Github, Linkedin, Mail, Instagram, MessageCircle, Phone } from "lucide-react";
+import { Send, Mic, Bot, User, MicOff, X, Mail, Phone, MessageCircle, ExternalLink } from "lucide-react";
 
 type Message = {
   id: string;
@@ -78,7 +78,11 @@ export default function AIChatbot() {
     let botMsg: Message = { id: (Date.now() + 1).toString(), sender: "bot", text: "", type: "text" };
 
     const TIMEZONE_MAP: Record<string, string> = {
-      "india": "Asia/Kolkata", "usa": "America/New_York", "uk": "Europe/London", "dubai": "Asia/Dubai",
+      "india": "Asia/Kolkata", "usa": "America/New_York", "uk": "Europe/London", "london": "Europe/London",
+      "dubai": "Asia/Dubai", "uae": "Asia/Dubai", "japan": "Asia/Tokyo", "tokyo": "Asia/Tokyo",
+      "australia": "Australia/Sydney", "singapore": "Asia/Singapore", "canada": "America/Toronto",
+      "germany": "Europe/Berlin", "france": "Europe/Paris", "china": "Asia/Shanghai",
+      "kerala": "Asia/Kolkata", "kollam": "Asia/Kolkata",
     };
     const timeMatch = lower.match(/(?:what is the |current )?time in ([a-z\s]+)\??/);
     
@@ -88,14 +92,19 @@ export default function AIChatbot() {
       const loc = timeMatch[1].trim();
       const timeStr = new Date().toLocaleTimeString('en-US', { timeZone: TIMEZONE_MAP[loc], hour: '2-digit', minute: '2-digit', hour12: true });
       botMsg.text = `The current time in ${loc.charAt(0).toUpperCase() + loc.slice(1)} is ${timeStr}.`;
+    } else if (lower.includes("marriage") || lower.includes("relationship") || lower.includes("status") || lower.includes("girlfriend") || lower.includes("committed")) {
+      botMsg.text = "Aswin Dev V is currently committed in a relationship, but he respectfully keeps his partner's identity private.";
     } else if (lower.includes("father") || lower.includes("mother") || lower.includes("parents") || lower.includes("family")) {
       botMsg.text = "Aswin Dev's father is Venu pillai K and his mother is Gaythri devi V. He also has a younger brother. Here is their family photo!";
       botMsg.type = "photo_family";
       setTimeout(() => setSelectedImage("/family-1.jpg"), 800);
     } else if (lower.includes("born") || lower.includes("birth") || lower.includes("age") || lower.includes("dob")) {
-      const birthDate = new Date(2005, 3, 10);
-      const diff = new Date().getFullYear() - birthDate.getFullYear();
-      botMsg.text = `Aswin Dev V was born on 10/04/2005. He is currently ${diff} years old.`;
+      const birthDate = new Date(2005, 3, 10); // April 10, 2005
+      const today = new Date();
+      let age = today.getFullYear() - birthDate.getFullYear();
+      const m = today.getMonth() - birthDate.getMonth();
+      if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) age--;
+      botMsg.text = `Aswin Dev V was born on 10/04/2005. He is currently ${age} years old.`;
     } else if (lower.includes("who is") || lower.includes("who are you") || lower.includes("yourself")) {
       botMsg.text = "Aswin Dev V is a technology enthusiast from Kollam, Kerala, India. He was born and brought up in Kollam in a supportive family environment. His father and mother have always encouraged his learning, and he also has a younger brother.\n\nAswin completed his 10th standard at DVVHSS Thalavoor and continued his Higher Secondary (+2) at the same school. From a young age, he developed a strong curiosity about technology and how systems work.\n\nAfter school, he pursued a Bachelor of Computer Applications (BCA) at Yenepoya University, where he strengthened his knowledge in computers, programming, and modern technologies.\n\nAswin is particularly interested in IT, automation, and innovative technology solutions. He enjoys learning new technologies and building practical projects such as IoT systems and smart automation devices.\n\nHe believes in continuous learning and creative problem-solving, and his goal is to use technology to build useful products.";
     } else if (lower.includes("skills")) {
@@ -203,9 +212,9 @@ export default function AIChatbot() {
           <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
             <a href="mailto:aswindevv2005@gmail.com" target="_blank" rel="noreferrer" className="flex items-center gap-3 p-3 bg-cyan-950/40 rounded-xl border border-cyan-500/30 text-gray-300 hover:text-cyan-400 hover:bg-cyan-900/60 transition-all"><Mail size={16} /> Email</a>
             <a href="https://wa.me/918089595332" target="_blank" rel="noreferrer" className="flex items-center gap-3 p-3 bg-cyan-950/40 rounded-xl border border-cyan-500/30 text-gray-300 hover:text-green-400 hover:bg-cyan-900/60 transition-all"><MessageCircle size={16} /> WhatsApp</a>
-            <a href="https://www.instagram.com/aaaswinhh__?utm_source=qr&igsh=MWV3OHZnZWMybGZsdg==" target="_blank" rel="noreferrer" className="flex items-center gap-3 p-3 bg-cyan-950/40 rounded-xl border border-cyan-500/30 text-gray-300 hover:text-pink-400 hover:bg-cyan-900/60 transition-all"><Instagram size={16} /> Instagram</a>
-            <a href="https://github.com/aswindevv2005-collab" target="_blank" rel="noreferrer" className="flex items-center gap-3 p-3 bg-cyan-950/40 rounded-xl border border-cyan-500/30 text-gray-300 hover:text-white hover:bg-cyan-900/60 transition-all"><Github size={16} /> GitHub</a>
-            <a href="https://www.linkedin.com/in/aswindevv" target="_blank" rel="noreferrer" className="flex items-center gap-3 p-3 bg-cyan-950/40 rounded-xl border border-cyan-500/30 text-gray-300 hover:text-blue-400 hover:bg-cyan-900/60 transition-all"><Linkedin size={16} /> LinkedIn</a>
+            <a href="https://www.instagram.com/aaaswinhh__?utm_source=qr&igsh=MWV3OHZnZWMybGZsdg==" target="_blank" rel="noreferrer" className="flex items-center gap-3 p-3 bg-cyan-950/40 rounded-xl border border-cyan-500/30 text-gray-300 hover:text-pink-400 hover:bg-cyan-900/60 transition-all"><ExternalLink size={16} /> Instagram</a>
+            <a href="https://github.com/aswindevv2005-collab" target="_blank" rel="noreferrer" className="flex items-center gap-3 p-3 bg-cyan-950/40 rounded-xl border border-cyan-500/30 text-gray-300 hover:text-white hover:bg-cyan-900/60 transition-all"><ExternalLink size={16} /> GitHub</a>
+            <a href="https://www.linkedin.com/in/aswindevv" target="_blank" rel="noreferrer" className="flex items-center gap-3 p-3 bg-cyan-950/40 rounded-xl border border-cyan-500/30 text-gray-300 hover:text-blue-400 hover:bg-cyan-900/60 transition-all"><ExternalLink size={16} /> LinkedIn</a>
             <a href="tel:+918089595332" className="flex items-center gap-3 p-3 bg-cyan-950/40 rounded-xl border border-cyan-500/30 text-gray-300 hover:text-cyan-400 hover:bg-cyan-900/60 transition-all"><Phone size={16} /> Phone</a>
           </div>
         )}
