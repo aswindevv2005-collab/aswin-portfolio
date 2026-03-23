@@ -18,7 +18,6 @@ const SUGGESTIONS = [
   "Show present photo",
   "Show childhood photo",
   "Tell me about his journey",
-  "Show family photo",
   "How to contact him?",
 ];
 
@@ -106,7 +105,7 @@ export default function AIChatbot() {
       botMsg.type = "photo_family";
       setTimeout(() => setSelectedImage("/family-1.jpg"), 800);
     } else if (lower.includes("who is") || lower.includes("who are you") || lower.includes("yourself")) {
-      botMsg.text = "Aswin Dev V is a technology enthusiast from Kollam, Kerala, India. He was born and brought up in Kollam in a supportive family environment. His father and mother have always encouraged his learning, and he also has a younger brother named Kashi Dev.\n\nAswin completed his 10th standard at DVVHSS Thalavoor and continued his Higher Secondary (+2) at the same school. From a young age, he developed a strong curiosity about technology and how systems work.\n\nAfter school, he pursued a Bachelor of Computer Applications (BCA) at Yenepoya University, where he strengthened his knowledge in computers, programming, and modern technologies.\n\nAswin is particularly interested in IT, automation, and innovative technology solutions. He enjoys learning new technologies and building practical projects such as IoT systems and smart automation devices.\n\nHe believes in continuous learning and creative problem-solving, and his goal is to use technology to build useful products.";
+      botMsg.text = "Aswin Dev V is a technology enthusiast from Kollam, Kerala, India. He was born and brought up in Kollam in a supportive family environment. His father and mother have always encouraged his learning, and he also has a younger brother named Kashi Dev.\n\nAswin completed his 10th standard at DVVHSS Thalavoor and continued his Higher Secondary (+2) at the same school. From a young age, he developed a strong curiosity about technology and how systems work.\n\nAfter school, he pursued a Bachelor of Computer Applications (BCA) at Yenepoya University (2023-2026), specializing in AI, Cloud Computing & DevOps.\n\nAswin is particularly interested in IT, automation, and innovative technology solutions. He enjoys learning new technologies and building practical projects such as IoT systems and smart automation devices.\n\nHe believes in continuous learning and creative problem-solving, and his goal is to use technology to build useful products.";
     } else if (lower.includes("skills")) {
       botMsg.text = "Aswin possesses a robust stack across Frontend, Backend, and IoT. Here are his top technical skills:";
       botMsg.type = "skills";
@@ -153,21 +152,21 @@ export default function AIChatbot() {
         {msg.type === "photo_childhood" && (
           <div className="mt-3 flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
              {["/childhood-1.png", "/childhood-2.jpg", "/childhood-3.jpg"].map(src => (
-               <img key={src} onClick={() => setSelectedImage(src)} src={src} alt="Childhood" className="h-40 w-auto rounded-lg border-2 border-cyan-500/50 shrink-0 cursor-pointer" />
+               <img key={src} onClick={() => setSelectedImage(src)} src={src} alt="Childhood" className="h-40 w-auto rounded-lg border-2 border-cyan-500/50 shrink-0 cursor-pointer neon-border" />
              ))}
           </div>
         )}
 
         {msg.type === "photo_family" && (
           <div className="mt-3">
-            <img onClick={() => setSelectedImage("/family-1.jpg")} src="/family-1.jpg" alt="Family" className="w-64 h-auto rounded-lg border-2 border-cyan-500/50 cursor-pointer" />
+            <img onClick={() => setSelectedImage("/family-1.jpg")} src="/family-1.jpg" alt="Family" className="w-64 h-auto rounded-lg border-2 border-cyan-500/50 cursor-pointer neon-border" />
           </div>
         )}
 
         {msg.type === "photo_present" && (
           <div className="mt-3 flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
             {["/present-1.jpg", "/present-2.jpg", "/present-3.png"].map(src => (
-              <img key={src} onClick={() => setSelectedImage(src)} src={src} alt="Present" className="h-64 w-auto rounded-lg border-2 border-cyan-500/50 shrink-0 cursor-pointer" />
+              <img key={src} onClick={() => setSelectedImage(src)} src={src} alt="Present" className="h-64 w-auto rounded-lg border-2 border-cyan-500/50 shrink-0 cursor-pointer neon-border" />
             ))}
           </div>
         )}
@@ -175,47 +174,59 @@ export default function AIChatbot() {
         {msg.type === "skills" && (
           <div className="mt-3 flex flex-wrap gap-2">
             {["React.js", "FastAPI", "Python", "C", "Docker", "IoT", "JavaScript", "HTML/CSS", "Node.js", "Java", "Arduino", "Bootstrap"].map(s => (
-              <span key={s} className="px-3 py-1 bg-cyan-950/50 border border-cyan-500/30 rounded-full text-cyan-300 text-sm">{s}</span>
+              <span key={s} className="px-3 py-1 bg-cyan-950/50 border border-cyan-500/30 rounded-full text-cyan-300 text-sm shadow-[0_0_8px_rgba(6,182,212,0.2)]">{s}</span>
             ))}
           </div>
         )}
 
         {msg.type === "projects" && (
           <div className="mt-3 space-y-3">
-            <div className="bg-white/5 p-4 rounded-xl border border-white/10">
+            <div className="bg-slate-900/40 p-4 rounded-xl border border-cyan-500/20 backdrop-blur-md">
               <h4 className="font-bold text-cyan-400">Movie Booking Web App</h4>
               <p className="text-[10px] text-gray-400 mb-2 uppercase tracking-widest font-mono">React • REST API</p>
-              <p className="text-sm text-gray-400">A full-stack platform with a interactive UI for seat selection and real-time movie scheduling.</p>
+              <p className="text-sm text-gray-300">A full-stack platform with a interactive UI for seat selection and real-time movie scheduling.</p>
             </div>
-            <div className="bg-white/5 p-4 rounded-xl border border-white/10">
+            <div className="bg-slate-900/40 p-4 rounded-xl border border-cyan-500/20 backdrop-blur-md">
               <h4 className="font-bold text-cyan-400">CNN Image Classification</h4>
               <p className="text-[10px] text-gray-400 mb-2 uppercase tracking-widest font-mono">Python • FastAPI • Docker</p>
-              <p className="text-sm text-gray-400">Deep learning model trained on CIFAR-10 and deployed via an automated API for real-time predictions.</p>
+              <p className="text-sm text-gray-300">Deep learning model trained on CIFAR-10 and deployed via an automated API for real-time predictions.</p>
             </div>
-            <div className="bg-white/5 p-4 rounded-xl border border-white/10">
+            <div className="bg-slate-900/40 p-4 rounded-xl border border-cyan-500/20 backdrop-blur-md">
               <h4 className="font-bold text-cyan-400">IoT Pet Feeder</h4>
               <p className="text-[10px] text-gray-400 mb-2 uppercase tracking-widest font-mono">Arduino • Embedded C • IoT</p>
-              <p className="text-sm text-gray-400">Automated feeding system using RTC, servo motors, and Arduino for timed pet care.</p>
+              <p className="text-sm text-gray-300">Automated feeding system using RTC, servo motors, and Arduino for timed pet care.</p>
             </div>
           </div>
         )}
 
         {msg.type === "journey" && (
-          <div className="mt-3 border-l-2 border-cyan-500/50 ml-2 pl-4 flex flex-col gap-5">
-            <div><p className="text-xs text-cyan-500 font-bold">2021</p><p className="text-sm text-gray-200">Secondary Education - DVVHSS Thalavoor</p></div>
-            <div><p className="text-xs text-cyan-500 font-bold">2023</p><p className="text-sm text-gray-200">Higher Secondary - DVVHSS Thalavoor</p></div>
-            <div><p className="text-xs text-cyan-500 font-bold">2026</p><p className="text-sm text-gray-200">Pursuing BCA (AI, Cloud & DevOps) at Yenepoya University</p></div>
+          <div className="mt-3 border-l-2 border-cyan-500/50 ml-2 pl-4 flex flex-col gap-6">
+            <div className="relative">
+              <div className="absolute -left-[21px] top-1 w-3 h-3 bg-cyan-400 rounded-full shadow-[0_0_8px_#06b6d4]"></div>
+              <p className="text-xs text-cyan-500 font-bold">2021</p>
+              <p className="text-sm text-gray-200">Secondary Education - DVVHSS Thalavoor</p>
+            </div>
+            <div className="relative">
+              <div className="absolute -left-[21px] top-1 w-3 h-3 bg-cyan-400 rounded-full shadow-[0_0_8px_#06b6d4]"></div>
+              <p className="text-xs text-cyan-500 font-bold">2023</p>
+              <p className="text-sm text-gray-200">Higher Secondary - DVVHSS Thalavoor</p>
+            </div>
+            <div className="relative">
+              <div className="absolute -left-[21px] top-1 w-3 h-3 bg-cyan-400 rounded-full shadow-[0_0_8px_#06b6d4]"></div>
+              <p className="text-xs text-cyan-500 font-bold">2026</p>
+              <p className="text-sm text-gray-200">Pursuing BCA (AI, Cloud & DevOps) at Yenepoya University</p>
+            </div>
           </div>
         )}
 
         {msg.type === "contact" && (
           <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
-            <a href="mailto:aswindevv2005@gmail.com" target="_blank" rel="noreferrer" className="flex items-center gap-3 p-3 bg-cyan-950/40 rounded-xl border border-cyan-500/30 text-gray-300 hover:text-cyan-400 transition-all"><Mail size={16} /> Email</a>
-            <a href="https://wa.me/918089595332" target="_blank" rel="noreferrer" className="flex items-center gap-3 p-3 bg-cyan-950/40 rounded-xl border border-cyan-500/30 text-gray-300 hover:text-green-400 transition-all"><MessageCircle size={16} /> WhatsApp</a>
-            <a href="https://www.instagram.com/aaaswinhh__?utm_source=qr&igsh=MWV3OHZnZWMybGZsdg==" target="_blank" rel="noreferrer" className="flex items-center gap-3 p-3 bg-cyan-950/40 rounded-xl border border-cyan-500/30 text-gray-300 hover:text-pink-400 transition-all"><ExternalLink size={16} /> Instagram</a>
-            <a href="https://github.com/aswindevv2005-collab" target="_blank" rel="noreferrer" className="flex items-center gap-3 p-3 bg-cyan-950/40 rounded-xl border border-cyan-500/30 text-gray-300 hover:text-white transition-all"><ExternalLink size={16} /> GitHub</a>
-            <a href="https://www.linkedin.com/in/aswindevv" target="_blank" rel="noreferrer" className="flex items-center gap-3 p-3 bg-cyan-950/40 rounded-xl border border-cyan-500/30 text-gray-300 hover:text-blue-400 transition-all"><ExternalLink size={16} /> LinkedIn</a>
-            <a href="tel:+918089595332" className="flex items-center gap-3 p-3 bg-cyan-950/40 rounded-xl border border-cyan-500/30 text-gray-300 hover:text-cyan-400 transition-all"><Phone size={16} /> Phone</a>
+            <a href="mailto:aswindevv2005@gmail.com" target="_blank" rel="noreferrer" className="flex items-center gap-3 p-3 bg-cyan-950/40 rounded-xl border border-cyan-500/30 text-gray-300 hover:text-cyan-400 transition-all neon-hover"><Mail size={16} /> Email</a>
+            <a href="https://wa.me/918089595332" target="_blank" rel="noreferrer" className="flex items-center gap-3 p-3 bg-cyan-950/40 rounded-xl border border-cyan-500/30 text-gray-300 hover:text-green-400 transition-all neon-hover"><MessageCircle size={16} /> WhatsApp</a>
+            <a href="https://www.instagram.com/aaaswinhh__?utm_source=qr&igsh=MWV3OHZnZWMybGZsdg==" target="_blank" rel="noreferrer" className="flex items-center gap-3 p-3 bg-cyan-950/40 rounded-xl border border-cyan-500/30 text-gray-300 hover:text-pink-400 transition-all neon-hover"><ExternalLink size={16} /> Instagram</a>
+            <a href="https://github.com/aswindevv2005-collab" target="_blank" rel="noreferrer" className="flex items-center gap-3 p-3 bg-cyan-950/40 rounded-xl border border-cyan-500/30 text-gray-300 hover:text-white transition-all neon-hover"><ExternalLink size={16} /> GitHub</a>
+            <a href="https://www.linkedin.com/in/aswindevv" target="_blank" rel="noreferrer" className="flex items-center gap-3 p-3 bg-cyan-950/40 rounded-xl border border-cyan-500/30 text-gray-300 hover:text-blue-400 transition-all neon-hover"><ExternalLink size={16} /> LinkedIn</a>
+            <a href="tel:+918089595332" className="flex items-center gap-3 p-3 bg-cyan-950/40 rounded-xl border border-cyan-500/30 text-gray-300 hover:text-cyan-400 transition-all neon-hover"><Phone size={16} /> Phone</a>
           </div>
         )}
       </div>
@@ -228,9 +239,9 @@ export default function AIChatbot() {
       {/* Photo Lightbox */}
       <AnimatePresence>
         {selectedImage && (
-          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="fixed inset-0 z-50 bg-black/95 flex flex-col items-center justify-center p-4">
-            <button onClick={() => setSelectedImage(null)} className="absolute top-6 right-6 p-3 bg-white/10 hover:bg-white/20 rounded-full text-white transition-all z-[60]"><X size={28} /></button>
-            <img src={selectedImage} alt="Fullscreen" className="max-w-full max-h-[85vh] rounded-lg shadow-2xl object-contain" onClick={(e) => e.stopPropagation()} />
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="fixed inset-0 z-[100] bg-black/95 flex flex-col items-center justify-center p-4">
+            <button onClick={() => setSelectedImage(null)} className="absolute top-6 right-6 p-3 bg-white/10 hover:bg-white/20 rounded-full text-white transition-all z-[110] shadow-[0_0_15px_rgba(255,255,255,0.3)]"><X size={28} /></button>
+            <motion.img initial={{ scale: 0.9 }} animate={{ scale: 1 }} src={selectedImage} alt="Fullscreen" className="max-w-full max-h-[85vh] rounded-lg shadow-2xl object-contain border border-cyan-500/30 shadow-[0_0_40px_rgba(6,182,212,0.2)]" onClick={(e) => e.stopPropagation()} />
             <div className="absolute inset-0 -z-10 cursor-pointer" onClick={() => setSelectedImage(null)} />
           </motion.div>
         )}
@@ -252,7 +263,7 @@ export default function AIChatbot() {
       </motion.div>
 
       {/* Chat Area */}
-      <div className="flex-1 overflow-y-auto mb-6 pr-2 scrollbar-hide flex flex-col gap-6">
+      <div className="flex-1 overflow-y-auto mb-4 pr-2 scrollbar-hide flex flex-col gap-6">
         <AnimatePresence>
           {messages.map((msg) => (
             <motion.div key={msg.id} initial={{ opacity: 0, scale: 0.98 }} animate={{ opacity: 1, scale: 1 }} className={`flex w-full items-start gap-3 ${msg.sender === "user" ? "flex-row-reverse" : ""}`}>
@@ -268,27 +279,33 @@ export default function AIChatbot() {
         </AnimatePresence>
       </div>
 
-      {/* Suggestion Chips */}
-      <div className="flex flex-wrap gap-2 mb-4 justify-center">
-        {SUGGESTIONS.map(sugg => (
-          <button key={sugg} onClick={() => handleSend(sugg)} className="px-4 py-2 rounded-full bg-cyan-950/40 border border-cyan-500/30 text-xs text-cyan-300 hover:bg-cyan-900/60 hover:shadow-[0_0_15px_rgba(6,182,212,0.3)] transition-all">
-            {sugg}
-          </button>
-        ))}
-      </div>
-
-      {/* Input Area */}
-      <div className="relative">
-        <div className="absolute inset-0 bg-cyan-500/20 blur-xl rounded-full opacity-50"></div>
-        <div className="relative flex items-center bg-gray-900/80 backdrop-blur-xl border border-cyan-500/30 rounded-full p-2 py-3 shadow-[0_0_30px_rgba(6,182,212,0.1)] transition-all">
-          <button onClick={toggleMic} className={`p-3 mx-2 rounded-full transition-colors flex items-center justify-center ${isListening ? "text-red-400 bg-red-500/20 animate-pulse shadow-[0_0_15px_rgba(248,113,113,0.5)]" : "text-gray-400 hover:text-cyan-400 hover:bg-cyan-950/50"}`}>
-            {isListening ? <MicOff size={20} /> : <Mic size={20} />}
-          </button>
-          <input type="text" value={inputVal} onChange={(e) => setInputVal(e.target.value)} onKeyDown={(e) => e.key === "Enter" && handleSend(inputVal)} placeholder="Ask JARVIS about Aswin..." className="flex-1 bg-transparent border-none outline-none text-white placeholder-gray-500 px-2" />
-          <button onClick={() => handleSend(inputVal)} className="p-3 mx-2 rounded-full bg-cyan-500/20 text-cyan-400 hover:bg-cyan-500 hover:text-white transition-all shadow-lg"><Send size={18} /></button>
+      <footer className="mt-auto">
+        {/* Suggestion Chips - Horizontal Scroll */}
+        <div className="flex gap-2 overflow-x-auto scrollbar-hide py-2 mb-4 w-full flex-row flex-nowrap overflow-y-hidden">
+          {SUGGESTIONS.map(sugg => (
+            <button 
+              key={sugg} 
+              onClick={() => handleSend(sugg)} 
+              className="whitespace-nowrap px-4 py-2 rounded-full bg-cyan-950/40 border border-cyan-500/30 text-xs text-cyan-300 hover:bg-cyan-900/60 hover:border-cyan-400 transition-all flex-shrink-0 neon-hover shadow-[0_2px_10px_rgba(0,0,0,0.2)]"
+            >
+              {sugg}
+            </button>
+          ))}
         </div>
-        <p className="text-center text-[10px] text-gray-500 mt-4 uppercase tracking-widest font-bold">Powered by JARVIS AI • Aswin Dev V</p>
-      </div>
+
+        {/* Input Area */}
+        <div className="relative pb-4">
+          <div className="absolute inset-0 bg-cyan-500/10 blur-xl rounded-full opacity-50"></div>
+          <div className="relative flex items-center bg-gray-900/80 backdrop-blur-xl border border-cyan-500/30 rounded-full p-1 py-1.5 md:p-2 md:py-3 shadow-[0_0_30px_rgba(6,182,212,0.1)] transition-all">
+            <button onClick={toggleMic} className={`p-3 mx-1 md:mx-2 rounded-full transition-colors flex items-center justify-center ${isListening ? "text-red-400 bg-red-500/20 animate-pulse" : "text-gray-400 hover:text-cyan-400"}`}>
+              {isListening ? <MicOff size={20} /> : <Mic size={20} />}
+            </button>
+            <input type="text" value={inputVal} onChange={(e) => setInputVal(e.target.value)} onKeyDown={(e) => e.key === "Enter" && handleSend(inputVal)} placeholder="Ask JARVIS about Aswin..." className="flex-1 bg-transparent border-none outline-none text-white placeholder-gray-500 px-2 text-sm md:text-base" />
+            <button onClick={() => handleSend(inputVal)} className="p-3 mx-1 md:mx-2 rounded-full bg-cyan-500/20 text-cyan-400 hover:bg-cyan-500 hover:text-white transition-all"><Send size={18} /></button>
+          </div>
+          <p className="text-center text-[9px] text-gray-600 mt-4 uppercase tracking-[0.2em] font-bold">Powered by JARVIS AI • Aswin Dev V</p>
+        </div>
+      </footer>
     </div>
   );
 }
