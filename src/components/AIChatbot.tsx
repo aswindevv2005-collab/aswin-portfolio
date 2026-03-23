@@ -123,7 +123,7 @@ export default function AIChatbot() {
   };
 
   return (
-    <div className="flex flex-col h-screen md:h-[95vh] w-full max-w-2xl mx-auto bg-white shadow-2xl md:rounded-3xl overflow-hidden relative">
+    <div className="flex flex-col h-screen md:h-[92vh] w-full max-w-3xl mx-auto bg-white shadow-2xl md:rounded-3xl overflow-hidden relative">
       
       {/* Lightbox with EXIT/CLOSE button */}
       <AnimatePresence>
@@ -274,7 +274,7 @@ export default function AIChatbot() {
       <footer className="p-4 md:p-6 bg-white border-t border-gray-100">
         
         {/* Suggestion Pills */}
-        <div className="flex gap-2 overflow-x-auto pb-4 scrollbar-hide mb-4">
+        <div className="flex gap-2 overflow-x-auto scrollbar-hide py-2 mb-2 px-1">
           {SUGGESTIONS.map(s => (
             <button key={s} onClick={() => handleSend(s)} className="whitespace-nowrap px-4 py-1.5 bg-indigo-50 text-indigo-600 text-xs font-semibold rounded-full border border-indigo-100 hover:bg-indigo-600 hover:text-white transition-all shadow-sm">
               {s}
