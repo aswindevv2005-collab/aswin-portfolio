@@ -40,13 +40,13 @@ export default function AnimatedBackground() {
         },
         particles: {
           color: {
-            value: "#6366f1", // indigo-500
+            value: "#00f0ff", // neon cyan
           },
           links: {
-            color: "#818cf8", // indigo-400
+            color: "#06b6d4", // dark cyan
             distance: 150,
             enable: true,
-            opacity: 0.2,
+            opacity: 0.3,
             width: 1,
           },
           move: {
