@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Send, Mic, Bot, User, MicOff, Github, Linkedin, Mail, Phone, Instagram } from "lucide-react";
+import { Send, Mic, Bot, User, MicOff, Mail, Phone, ExternalLink } from "lucide-react";
 
 type Message = {
   id: string;
@@ -221,7 +221,7 @@ export default function AIChatbot() {
                       <span className="text-xs font-medium">Email</span>
                     </a>
                     <a href="https://github.com/aswindevv2005-collab" className="flex items-center gap-2 p-2 bg-gray-50 rounded-lg border border-gray-100 hover:bg-gray-100 transition-colors">
-                      <Github size={14} className="text-gray-900" />
+                      <ExternalLink size={14} className="text-gray-900" />
                       <span className="text-xs font-medium">GitHub</span>
                     </a>
                   </div>
