@@ -314,12 +314,12 @@ export default function AIChatbot() {
             <div className="relative">
               <div className="absolute -left-[21px] top-1 w-3 h-3 bg-cyan-400 rounded-full shadow-[0_0_8px_#06b6d4]"></div>
               <p className="text-xs text-cyan-500 font-bold">2021</p>
-              <p className="text-sm text-gray-200">Secondary Education - Devi Vilasom Vocational Higher Secondary School, Thalavoor</p>
+              <p className="text-sm text-gray-200">Secondary Education - Devi Vilasom VHSS, Thalavoor</p>
             </div>
             <div className="relative">
               <div className="absolute -left-[21px] top-1 w-3 h-3 bg-cyan-400 rounded-full shadow-[0_0_8px_#06b6d4]"></div>
               <p className="text-xs text-cyan-500 font-bold">2023</p>
-              <p className="text-sm text-gray-200">Higher Secondary Education - Devi Vilasom Vocational Higher Secondary School, Thalavoor</p>
+              <p className="text-sm text-gray-200">Higher Secondary Education - Devi Vilasom VHSS</p>
             </div>
             <div className="relative">
               <div className="absolute -left-[21px] top-1 w-3 h-3 bg-cyan-400 rounded-full shadow-[0_0_8px_#06b6d4]"></div>
@@ -333,7 +333,7 @@ export default function AIChatbot() {
   };
 
   return (
-    <div className="w-full max-w-4xl 2xl:max-w-6xl mx-auto flex flex-col h-[90dvh] md:h-[85vh] relative z-10 pt-4 md:pt-10 px-4 sm:px-6 md:px-0">
+    <div className="w-full max-w-4xl 2xl:max-w-6xl mx-auto flex flex-col h-[92dvh] md:h-[88vh] relative z-10 pt-4 md:pt-10 px-4 sm:px-6 md:px-0 scrollbar-hide overflow-hidden">
       
       {/* Photo Lightbox / Modal */}
       <AnimatePresence>
@@ -419,13 +419,13 @@ export default function AIChatbot() {
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.2 }}
-        className="flex flex-wrap gap-2 mb-4 justify-center"
+        className="flex flex-nowrap gap-2 mb-4 overflow-x-auto pb-4 scrollbar-hide no-scrollbar -mx-2 px-2 scroll-smooth sm:flex-wrap sm:overflow-visible sm:justify-center"
       >
         {SUGGESTIONS.map(sugg => (
           <button 
             key={sugg} 
             onClick={() => handleSend(sugg)}
-            className="px-4 py-2 rounded-full bg-cyan-950/40 border border-cyan-500/30 text-xs text-cyan-300 hover:bg-cyan-900/60 hover:border-cyan-400 transition-all neon-hover"
+            className="px-4 py-2 rounded-full bg-cyan-950/40 border border-cyan-500/30 text-[11px] text-cyan-300 hover:bg-cyan-900/60 hover:border-cyan-400 transition-all neon-hover shrink-0"
           >
             {sugg}
           </button>
