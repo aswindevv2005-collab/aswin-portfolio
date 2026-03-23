@@ -2,22 +2,22 @@
 
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Send, Mic, Bot, User, MicOff, Mail, Phone, ExternalLink } from "lucide-react";
+import { Send, Mic, Bot, User, MicOff, Mail, Phone, ExternalLink, X } from "lucide-react";
 
 type Message = {
   id: string;
   sender: "user" | "bot";
   text: string;
-  type?: "text" | "photo_childhood" | "photo_present" | "projects" | "skills" | "journey" | "contact";
+  type?: "text" | "photo_childhood" | "photo_present" | "photo_family" | "projects" | "skills" | "journey" | "contact";
 };
 
 const SUGGESTIONS = [
   "Who is Aswin Dev?",
   "What are his skills?",
   "Show his projects",
+  "Show family photo",
   "Show present photo",
   "Show childhood photo",
-  "Tell me about his journey",
   "How to contact him?",
 ];
 
@@ -94,6 +94,10 @@ export default function AIChatbot() {
     } else if (lower.includes("photo") && (lower.includes("present") || lower.includes("now"))) {
       botMsg.text = "Here is Aswin Dev V today!";
       botMsg.type = "photo_present";
+    } else if (lower.includes("father") || lower.includes("mother") || lower.includes("parents") || lower.includes("family")) {
+      botMsg.text = "Aswin Dev's father is Venu pillai K and his mother is Gaythri devi V. Here is a precious family photo!";
+      botMsg.type = "photo_family";
+      setTimeout(() => setSelectedImage("/family-1.jpg"), 800);
     } else if (lower.includes("contact") || lower.includes("reach") || lower.includes("social")) {
       botMsg.text = "You can connect with Aswin through these platforms:";
       botMsg.type = "contact";
@@ -121,15 +125,26 @@ export default function AIChatbot() {
   return (
     <div className="flex flex-col h-screen md:h-[95vh] w-full max-w-2xl mx-auto bg-white shadow-2xl md:rounded-3xl overflow-hidden relative">
       
-      {/* Lightbox */}
+      {/* Lightbox with EXIT/CLOSE button */}
       <AnimatePresence>
         {selectedImage && (
           <motion.div 
             initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4 cursor-pointer"
-            onClick={() => setSelectedImage(null)}
+            className="fixed inset-0 z-50 bg-black/90 flex flex-col items-center justify-center p-4"
           >
-            <img src={selectedImage} alt="Fullscreen" className="max-w-full max-h-full rounded-lg shadow-2xl" />
+            <button 
+              onClick={() => setSelectedImage(null)}
+              className="absolute top-6 right-6 p-3 bg-white/10 hover:bg-white/20 rounded-full text-white transition-all z-[60]"
+            >
+              <X size={28} />
+            </button>
+            <img 
+              src={selectedImage} alt="Fullscreen" 
+              className="max-w-full max-h-[85vh] rounded-lg shadow-2xl object-contain" 
+              onClick={(e) => e.stopPropagation()}
+            />
+            <p className="text-white/60 text-xs mt-4 uppercase tracking-widest font-bold">Tap background or [X] to close</p>
+            <div className="absolute inset-0 -z-10 cursor-pointer" onClick={() => setSelectedImage(null)} />
           </motion.div>
         )}
       </AnimatePresence>
@@ -227,12 +242,24 @@ export default function AIChatbot() {
                   </div>
                 )}
 
+                {msg.type === "photo_family" && (
+                  <div className="mt-4">
+                    <img onClick={() => setSelectedImage("/family-1.jpg")} src="/family-1.jpg" alt="Family" className="h-48 w-auto rounded-xl shadow-sm border border-gray-200 cursor-pointer hover:border-indigo-400 transition-all" />
+                  </div>
+                )}
+
                 {(msg.type === "photo_childhood" || msg.type === "photo_present") && (
                   <div className="mt-4 flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
                     {msg.type === "photo_childhood" ? (
-                      <img onClick={() => setSelectedImage("/childhood-2.jpg")} src="/childhood-2.jpg" alt="Child" className="h-40 w-auto rounded-xl shadow-sm border border-gray-200 shrink-0 cursor-pointer" />
+                      <>
+                        <img onClick={() => setSelectedImage("/childhood-2.jpg")} src="/childhood-2.jpg" alt="Child" className="h-40 w-auto rounded-xl shadow-sm border border-gray-200 shrink-0 cursor-pointer" />
+                        <img onClick={() => setSelectedImage("/childhood-3.jpg")} src="/childhood-3.jpg" alt="Child" className="h-40 w-auto rounded-xl shadow-sm border border-gray-200 shrink-0 cursor-pointer" />
+                      </>
                     ) : (
-                      <img onClick={() => setSelectedImage("/present-1.jpg")} src="/present-1.jpg" alt="Present" className="h-40 w-auto rounded-xl shadow-sm border border-gray-200 shrink-0 cursor-pointer" />
+                      <>
+                        <img onClick={() => setSelectedImage("/present-1.jpg")} src="/present-1.jpg" alt="Present" className="h-40 w-auto rounded-xl shadow-sm border border-gray-200 shrink-0 cursor-pointer" />
+                        <img onClick={() => setSelectedImage("/present-2.jpg")} src="/present-2.jpg" alt="Present" className="h-40 w-auto rounded-xl shadow-sm border border-gray-200 shrink-0 cursor-pointer" />
+                      </>
                     )}
                   </div>
                 )}
